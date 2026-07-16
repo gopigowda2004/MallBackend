@@ -9,7 +9,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/shopowners")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {
+        "http://localhost:3000",
+        "https://mall-frontend-ten.vercel.app"
+})
 public class ShopOwnerController {
 
     @Autowired
@@ -33,7 +36,6 @@ public class ShopOwnerController {
     @PutMapping("/{id}")
     public ShopOwner update(@PathVariable Long id,
                             @RequestBody ShopOwner owner) {
-
         return service.updateShopOwner(id, owner);
     }
 
